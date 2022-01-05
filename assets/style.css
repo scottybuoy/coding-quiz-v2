@@ -26,8 +26,11 @@ body {
 }
 
 #start-button {
-    display: block;
     margin: auto;
+}
+
+.btn {
+    display: block;
     padding: 9px;
     margin-top: 5px;
     border-radius: 8px;
@@ -39,4 +42,8 @@ body {
 
 #description {
     text-align: center;
+}
+
+.hide {
+    display: none;
 }
