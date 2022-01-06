@@ -14,8 +14,8 @@ var desc = $("<p>", {"id" : "description2"});
 var initialsCont = $("<div>", {"id" : "initials-container"});
 var initialsPrompt = $("<p>", {"id" : "initials-prompt"});
 var initialsInput = $("<input>", {"id" : "initials", "type" : "text"});
-var initialsButton = $("<button>", {"id" : "initials-button", "type" : "submit"});
-
+var initialsButton = $("<button>", {"id" : "initials-button"});
+var initialsInputStor = document.querySelector("#initials");
 
 
 
@@ -171,3 +171,12 @@ function transition6() {
     initialsPrompt.text("Enter initials: ");
     initialsButton.text("Submit");
 }
+
+
+initialsButton.on("click", submitScore);
+
+function submitScore() {
+    localStorage.setItem(initialsInputStor.value, currentTime);
+}
+
+console.log(initialsInputStor);
