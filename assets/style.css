@@ -42,8 +42,26 @@ body {
 
 #description {
     text-align: center;
+    color: rgb(39, 48, 63);
+    font-style: italic;
+}
+
+#description2 {
+    text-align: center;
+    color: rgb(39, 48, 63);
+    font-style: italic;
 }
 
 .hide {
     display: none;
+}
+
+#timer-countdown {
+    padding-left: 10px;   
+}
+
+#timer-label {
+    color:rgb(80, 89, 105);
+    font-weight: 100;
+    font-style: italic;
 }
