@@ -25,7 +25,7 @@ of the skills we've learned in a practical fashion.
 
 ## Functionality 
 
-![A short preview of the quiz's functionality](https://giphy.com/gifs/TIJZERlBbGIdPKFuJt)
+![A short preview of the quiz's functionality](https://media.giphy.com/media/TIJZERlBbGIdPKFuJt/giphy.gif)
 
 
 

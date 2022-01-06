@@ -8,6 +8,7 @@ var main = document.querySelector("#card");
 var card = $("#card");
 var timer = document.querySelector("#timer-container");
 // var startButton = document.querySelector("#start-button");
+// buttons
 var buttonCont = $("#buttonCont");
 var startButton = $("#start-button");
 var button1 = $("<button>", {"id" : "button1", "class" : "btn incorrect"});
