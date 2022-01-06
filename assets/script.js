@@ -129,7 +129,7 @@ function transition1() {
     button2.text(quizQuestions[0].answers.b);
     button3.text(quizQuestions[0].answers.c);
     button4.text(quizQuestions[0].answers.d);
-    button2.attr("class", "correct");
+    // button2.attr("class", "correct");
     $(".btn").on("click", transition2);
     $(".incorrect").on("click", incorrect);
     
