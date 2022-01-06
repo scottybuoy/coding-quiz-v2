@@ -5,22 +5,24 @@ var clock;
 var main = document.querySelector("#card");
 var card = $("#card");
 var timer = document.querySelector("#timer-container");
+// var startButton = document.querySelector("#start-button");
+var buttonCont = $("#buttonCont");
+var startButton = $("#start-button");
 var button1 = $("<button>", {"id" : "button1", "class" : "btn"});
 var button2 = $("<button>", {"id" : "button2", "class" : "btn"});
 var button3 = $("<button>", {"id" : "button3", "class" : "btn"});
 var button4 = $("<button>", {"id" : "button4", "class" : "btn"});
+var buttonReset = $("<button>", {"id" : "reset", "class" : "btn"});
 var header1 = $("#main-head");
 var desc = $("<p>", {"id" : "description2"});
 var initialsCont = $("<div>", {"id" : "initials-container"});
 var initialsPrompt = $("<p>", {"id" : "initials-prompt"});
 var initialsInput = $("<input>", {"id" : "initials", "type" : "text"});
 var initialsButton = $("<button>", {"id" : "initials-button"});
-var initialsInputStor = document.querySelector("#initials");
-
-
-
-
-
+var initialsStorage = document.querySelector("#initials");
+var description = $("#description");
+var scoresList = $("<ul>", {"id" : "scores-list"});
+var scoresListItem = $("<li>");
 
 // array of question objects //
 const quizQuestions = [
@@ -82,9 +84,8 @@ $("#timer-container").remove();
 
 $("#start-button").on("click", transition1);
 
-
-
 function transition1() {
+    currentTime = 50;
 
     clock = setInterval(tickTock, 1000);
     timerCountdown.text(currentTime);
@@ -93,9 +94,6 @@ function transition1() {
         timerCountdown.text(currentTime);
         currentTime --;
     };
-
-
-
 
     document.body.insertBefore(timer, main);
     $("#start-button").remove();
@@ -162,7 +160,8 @@ function transition5() {
 function transition6() {
     header1.attr("style", "text-align: center");
     header1.text("Finished!");
-    $("#buttonCont").remove();
+    // $("#buttonCont").remove();
+    button1.remove(), button2.remove(), button3.remove(), button4.remove();
     card.append(desc);
     desc.text(`Your score is ${currentTime}`);
     clearInterval(clock);
@@ -170,13 +169,41 @@ function transition6() {
     initialsCont.append([initialsPrompt, initialsInput, initialsButton]);
     initialsPrompt.text("Enter initials: ");
     initialsButton.text("Submit");
+    initialsButton.on("click", submitScore);
 }
 
-
-initialsButton.on("click", submitScore);
-
+// Submit score to leaderboard
 function submitScore() {
+
+    var initialsInputStor = document.querySelector("#initials");
+  
+    // var scoresEntry = localStorage.getItem(initialsStorage.value);
     localStorage.setItem(initialsInputStor.value, currentTime);
+    header1.text("Highscores");
+    card.append(scoresList);
+    scoresList.append(scoresListItem);
+    initialsInput.remove();
+    initialsButton.remove();
+    initialsPrompt.remove();
+    desc.remove();
+    $("#timer-container").remove();
+    scoresListItem.text(initialsInputStor.value.toUpperCase());
+    console.log(initialsInputStor.value);
+    card.append(buttonReset);
+    buttonReset.text("Take again");
+    buttonReset.on("click", reset);
 }
 
-console.log(initialsInputStor);
+
+function reset() {
+    buttonReset.remove();
+    scoresList.remove();
+    header1.text("Javascript Quiz");
+    $("#buttonCont").append(startButton);
+    card.append(description);
+    description.text("Each incorrect answer takes 5s off the clock!");
+    // card.append(buttonCont);
+    $("#start-button").on("click", transition1);
+    currentTime === 50;
+}
+

@@ -1,5 +1,26 @@
 body {
     font-family: sans-serif;
+    color: rgb(39, 48, 63);
+}
+
+#card {
+    position: relative;
+}
+
+.image-container {
+    position: absolute;
+    width: 100%;
+    margin: auto;
+}
+
+#green-check {
+
+   
+}
+
+#red-x {
+
+ 
 }
 
 #timer-container {
@@ -61,13 +82,15 @@ body {
 }
 
 #timer-countdown {
-    padding-left: 10px;   
+    padding-left: 10px;
+    color:rgb(39, 48, 63);
 }
 
 #timer-label {
     color:rgb(80, 89, 105);
     font-weight: 100;
     font-style: italic;
+    color:rgb(80, 89, 105);
 }
 
 .test-class {
@@ -87,4 +110,29 @@ body {
 
 #initials:focus {
     outline: none;
+}
+
+#initials-button {
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(231, 198, 8);
+}
+
+#scores-list {
+    background-color:rgb(253, 230, 99);
+    padding: 8px;
+    border-radius: 8px;
+    list-style-type: none;
+
+}
+
+li {
+    margin: auto;
+}
+
+#reset {
+    margin: auto;
+    padding: 18px;
+    
 }
