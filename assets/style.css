@@ -11,13 +11,17 @@ body {
 #card {
     /* display: flex;
     flex-direction: column; */
-    background-color: gold;
+    
     margin: auto;
     margin-top: 10%;
     border-radius: 15px;
     width: 40%;
     align-items: center;
     padding: 30px;
+}
+
+.card-test {
+    background-color: gold;
 }
 
 #main-head {
@@ -64,4 +68,23 @@ body {
     color:rgb(80, 89, 105);
     font-weight: 100;
     font-style: italic;
+}
+
+.test-class {
+    background-color:rgb(39, 48, 63);
+}
+
+#initials-container {
+    display: flex;
+    justify-content: center;
+}
+
+#initials {
+    border-radius: 10px;
+    border: none;
+    background-color:rgb(255, 244, 179);
+}
+
+#initials:focus {
+    outline: none;
 }

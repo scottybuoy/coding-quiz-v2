@@ -11,6 +11,10 @@ var button3 = $("<button>", {"id" : "button3", "class" : "btn"});
 var button4 = $("<button>", {"id" : "button4", "class" : "btn"});
 var header1 = $("#main-head");
 var desc = $("<p>", {"id" : "description2"});
+var initialsCont = $("<div>", {"id" : "initials-container"});
+var initialsPrompt = $("<p>", {"id" : "initials-prompt"});
+var initialsInput = $("<input>", {"id" : "initials", "type" : "text"});
+var initialsButton = $("<button>", {"id" : "initials-button", "type" : "submit"});
 
 
 
@@ -105,6 +109,7 @@ function transition1() {
     button4.text(quizQuestions[0].answers.d);
     $(".btn").on("click", transition2);
     
+    
 }
 
 
@@ -161,4 +166,8 @@ function transition6() {
     card.append(desc);
     desc.text(`Your score is ${currentTime}`);
     clearInterval(clock);
+    card.append(initialsCont);
+    initialsCont.append([initialsPrompt, initialsInput, initialsButton]);
+    initialsPrompt.text("Enter initials: ");
+    initialsButton.text("Submit");
 }
