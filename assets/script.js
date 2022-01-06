@@ -1,3 +1,5 @@
+var greenCheck = document.querySelector("#green-check");
+var redX = document.querySelector("#red-x");
 var currentTime = 50;
 var timerLabel = $("#timer-label");
 var timerCountdown = $("#timer-countdown");
@@ -8,10 +10,10 @@ var timer = document.querySelector("#timer-container");
 // var startButton = document.querySelector("#start-button");
 var buttonCont = $("#buttonCont");
 var startButton = $("#start-button");
-var button1 = $("<button>", {"id" : "button1", "class" : "btn"});
-var button2 = $("<button>", {"id" : "button2", "class" : "btn"});
-var button3 = $("<button>", {"id" : "button3", "class" : "btn"});
-var button4 = $("<button>", {"id" : "button4", "class" : "btn"});
+var button1 = $("<button>", {"id" : "button1", "class" : "btn incorrect"});
+var button2 = $("<button>", {"id" : "button2", "class" : "btn incorrect"});
+var button3 = $("<button>", {"id" : "button3", "class" : "btn incorrect"});
+var button4 = $("<button>", {"id" : "button4", "class" : "btn incorrect"});
 var buttonReset = $("<button>", {"id" : "reset", "class" : "btn"});
 var header1 = $("#main-head");
 var desc = $("<p>", {"id" : "description2"});
@@ -23,6 +25,27 @@ var initialsStorage = document.querySelector("#initials");
 var description = $("#description");
 var scoresList = $("<ul>", {"id" : "scores-list"});
 var scoresListItem = $("<li>");
+
+
+    
+
+// Display green checkmark on selection of correct answer
+function correct() {
+    greenCheck.setAttribute("style", "display: block");
+        setTimeout(function() {
+        greenCheck.style.display = "none";
+    }, 500);
+}
+
+// Display red x and subtract 5 from timer on selection of incorrect answer
+function incorrect() {
+    currentTime = currentTime - 5;
+    timerCountdown.text(currentTime);
+    redX.setAttribute("style", "display: block");
+        setTimeout(function() {
+        redX.style.display = "none";
+    }, 500);
+}
 
 // array of question objects //
 const quizQuestions = [
@@ -85,6 +108,7 @@ $("#timer-container").remove();
 $("#start-button").on("click", transition1);
 
 function transition1() {
+    
     currentTime = 50;
 
     clock = setInterval(tickTock, 1000);
@@ -105,7 +129,9 @@ function transition1() {
     button2.text(quizQuestions[0].answers.b);
     button3.text(quizQuestions[0].answers.c);
     button4.text(quizQuestions[0].answers.d);
+    button2.attr("class", "correct");
     $(".btn").on("click", transition2);
+    $(".incorrect").on("click", incorrect);
     
     
 }
@@ -120,9 +146,6 @@ function transition2() {
     $(".btn").on("click", transition3);
 }
 
-
-
-
 function transition3() {
     header1.text(quizQuestions[2].question);
     button1.text(quizQuestions[2].answers.a);
@@ -132,8 +155,6 @@ function transition3() {
     $(".btn").on("click", transition4);
 }
 
-
-
 function transition4() {
     header1.text(quizQuestions[3].question);
     button1.text(quizQuestions[3].answers.a);
@@ -142,9 +163,6 @@ function transition4() {
     button4.remove();
     $(".btn").on("click", transition5);
 }
-
-
-
 
 function transition5() {
     $("#buttonCont").append([button3, button4]);
